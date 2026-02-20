@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FC Online – Ghi chú</title>
+  <style>
+    
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f6fa;
+  color: #1e2330;
+  line-height: 1.75;
+}
+a { color: inherit; text-decoration: none; }
+
+    body { min-height: 100vh; }
+
+    .hero {
+      background: linear-gradient(135deg, #0f1729 0%, #1a2f4a 50%, #0d4a22 100%);
+      color: white;
+      padding: 52px 24px 44px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .hero p {
+      color: rgba(255,255,255,.6);
+      font-size: 14px;
+      max-width: 400px;
+      margin: 0 auto 28px;
+    }
+
+    /* ── COUNTER ── */
+    .counter-wrap {
+      display: inline-flex;
+      gap: 0;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 22px;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-val {
+      font-size: 22px;
+      font-weight: 700;
+      color: #81d4a0;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-lbl {
+      font-size: 10px;
+      color: rgba(255,255,255,.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .grid {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border: 1px solid #e5e9f0;
+      display: block;
+      transition: transform .15s, box-shadow .15s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+    .card-num {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: #1a6b3a; margin-bottom: 8px;
+    }
+    .card-tag {
+      font-size: 16px; font-weight: 700;
+      color: #1a1f36; margin-bottom: 8px; line-height: 1.35;
+    }
+    .card-desc {
+      font-size: 13px; color: #6b7280;
+      line-height: 1.6; margin-bottom: 18px;
+    }
+    .card-meta {
+      display: flex; justify-content: flex-end;
+    }
+    .arrow { color: #1a6b3a; font-size: 16px; }
+
+    footer {
+      text-align: center; padding: 24px;
+      font-size: 12px; color: #9ca3af;
+      border-top: 1px solid #e5e9f0; background: white;
+    }
+
+    @media (max-width: 560px) {
+      .counter-wrap { flex-wrap: wrap; }
+      .stat-item { flex: 1 1 50%; border-bottom: 1px solid rgba(255,255,255,.12); }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>FC Online – Ghi chú</h1>
+    <p>Chọn phần để xem chi tiết.</p>
+    <div class="counter-wrap" id="visit-counter">
+      <div class="stat-item"><span class="stat-val">—</span><span class="stat-lbl">Hôm nay</span></div>
+      <div class="stat-item"><span class="stat-val">—</span><span class="stat-lbl">Tuần này</span></div>
+      <div class="stat-item"><span class="stat-val">—</span><span class="stat-lbl">Tháng này</span></div>
+      <div class="stat-item"><span class="stat-val">—</span><span class="stat-lbl">Tổng cộng</span></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    
+        <a class="card" href="buoi1.html">
+          <div class="card-num">Phần 1</div>
+          <div class="card-tag">Nền tảng chiến thuật</div>
+          <div class="card-desc">Các lối chơi cơ bản, vòng tròn bản chất 4 trạng thái, meta hiện tại</div>
+          <div class="card-meta"><span class="arrow">→</span></div>
+        </a>
+        <a class="card" href="buoi2.html">
+          <div class="card-num">Phần 2</div>
+          <div class="card-tag">Cơ chế tấn công</div>
+          <div class="card-desc">7 chiến thuật tấn công, 9 kỹ năng, tempo, kỹ thuật dứt điểm</div>
+          <div class="card-meta"><span class="arrow">→</span></div>
+        </a>
+        <a class="card" href="buoi3.html">
+          <div class="card-num">Phần 3</div>
+          <div class="card-tag">Phòng ngự nâng cao</div>
+          <div class="card-desc">Chống phản công, 4 loại pressing, bẫy việt vị, kèm 1v1</div>
+          <div class="card-meta"><span class="arrow">→</span></div>
+        </a>
+        <a class="card" href="buoi4.html">
+          <div class="card-num">Phần 4</div>
+          <div class="card-tag">Chỉ số & Đội hình</div>
+          <div class="card-desc">Chỉ số ẩn, chiến thuật từng vị trí, HLV, đào tạo cầu thủ</div>
+          <div class="card-meta"><span class="arrow">→</span></div>
+        </a>
+        <a class="card" href="buoi5.html">
+          <div class="card-num">Phần 5</div>
+          <div class="card-tag">Thực chiến</div>
+          <div class="card-desc">Hệ thống Zone, ZA/ZW/QZW, sút phạt, phạt góc, build-up</div>
+          <div class="card-meta"><span class="arrow">→</span></div>
+        </a>
+  </div>
+
+  <footer>FC Online · Ghi chú</footer>
+  
+<script>
+(function() {
+  var KEY = 'fco_visits';
+  var visits = JSON.parse(localStorage.getItem(KEY) || '[]');
+  visits.push(Date.now());
+  if (visits.length > 5000) visits = visits.slice(-5000);
+  localStorage.setItem(KEY, JSON.stringify(visits));
+
+  var now   = new Date();
+  var tod   = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  var wkDay = now.getDay() === 0 ? 6 : now.getDay() - 1; // Mon=0
+  var wk    = new Date(now.getFullYear(), now.getMonth(), now.getDate() - wkDay).getTime();
+  var mo    = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
+
+  function count(from) { return visits.filter(function(t){ return t >= from; }).length; }
+
+  var stats = [
+    { label: 'Hôm nay',   val: count(tod) },
+    { label: 'Tuần này',  val: count(wk)  },
+    { label: 'Tháng này', val: count(mo)  },
+    { label: 'Tổng cộng', val: visits.length },
+  ];
+
+  var html = stats.map(function(s) {
+    return '<div class="stat-item"><span class="stat-val">' + s.val +
+           '</span><span class="stat-lbl">' + s.label + '</span></div>';
+  }).join('');
+
+  document.getElementById('visit-counter').innerHTML = html;
+})();
+</script>
+
+</body>
+</html>
