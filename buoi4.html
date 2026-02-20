@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FC Online – Ghi chú – FC Online</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f6fa;
+  color: #1e2330;
+  line-height: 1.75;
+}
+a { color: inherit; text-decoration: none; }
+
+  body { background: #f4f6fa; }
+
+  .topbar {
+    background: linear-gradient(90deg, #0f1729, #1a2f4a);
+    padding: 14px 28px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .topbar a { color: #81d4a0; font-size: 13px; font-weight: 500; }
+  .topbar a:hover { text-decoration: underline; }
+  .topbar-sep { color: rgba(255,255,255,.3); }
+  .topbar-title { color: white; font-size: 14px; font-weight: 600; }
+
+  .cover {
+    background: linear-gradient(135deg, #0f1729 0%, #1a2f4a 55%, #0d4a22 100%);
+    color: white;
+    padding: 40px 40px 32px;
+  }
+  .cover h1 {
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 700; letter-spacing: -0.3px;
+  }
+
+  .content {
+    max-width: 820px;
+    margin: 32px auto;
+    padding: 0 24px 60px;
+  }
+
+  .toc {
+    background: white; border: 1px solid #e5e9f0;
+    border-radius: 10px; padding: 20px 24px;
+    margin-bottom: 32px; box-shadow: 0 1px 6px rgba(0,0,0,.05);
+  }
+  .toc-title {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: #6b7280; margin-bottom: 12px;
+  }
+  .toc ol { padding-left: 18px; }
+  .toc li { margin-bottom: 5px; }
+  .toc a { color: #1a6b3a; font-size: 13.5px; }
+  .toc a:hover { text-decoration: underline; }
+
+  article {
+    background: white; border-radius: 12px;
+    padding: 36px 40px; box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  }
+  article h1 {
+    font-size: 17px; font-weight: 700; color: #0f1729;
+    border-bottom: 3px solid #1a6b3a;
+    padding-bottom: 8px; margin: 28px 0 12px;
+  }
+  article h2 {
+    font-size: 14.5px; font-weight: 700; color: #1a6b3a;
+    border-left: 4px solid #1a6b3a;
+    padding-left: 10px; margin: 22px 0 8px;
+  }
+  article h3 { font-size: 13px; font-weight: 600; color: #374151; margin: 16px 0 6px; }
+  article h4 { font-size: 12.5px; font-weight: 600; color: #6b7280; margin: 12px 0 4px; }
+  article p  { margin: 0 0 10px; font-size: 14px; }
+  article ul, article ol { padding-left: 22px; margin: 6px 0 10px; }
+  article li { margin-bottom: 5px; font-size: 14px; }
+  article ul > li::marker { color: #1a6b3a; }
+  article ol > li::marker { color: #374151; font-weight: 600; }
+  article strong { color: #0f1729; }
+  article em { color: #374151; }
+  article code {
+    font-family: Consolas, monospace; font-size: 12px;
+    background: #f0f4f8; border: 1px solid #dce3eb;
+    border-radius: 4px; padding: 2px 6px; color: #c0392b;
+  }
+  article blockquote {
+    margin: 12px 0; padding: 12px 18px;
+    border-left: 4px solid #f59e0b;
+    background: #fffbeb; color: #78716c;
+    font-style: italic; border-radius: 0 6px 6px 0;
+  }
+  article hr { border: none; border-top: 2px solid #f1f5f9; margin: 20px 0; }
+  article table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  article th {
+    background: #0f1729; color: white;
+    padding: 9px 11px; text-align: left; font-size: 12px;
+  }
+  article td { padding: 8px 11px; border-bottom: 1px solid #e5e9f0; vertical-align: top; }
+  article tr:nth-child(even) td { background: #f8fafc; }
+
+  .nav-footer {
+    display: flex; justify-content: space-between;
+    margin-top: 32px; gap: 12px;
+  }
+  .nav-btn {
+    flex: 1; display: block;
+    background: white; border: 1px solid #e5e9f0;
+    border-radius: 8px; padding: 14px 18px;
+    font-size: 13px; color: #374151;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    transition: box-shadow .15s;
+  }
+  .nav-btn:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+  .nav-btn.right { text-align: right; }
+  .nav-label { font-size: 10px; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+  .nav-name  { font-weight: 600; color: #1a6b3a; }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="index.html">← Trang chủ</a>
+    <span class="topbar-sep">/</span>
+    <span class="topbar-title">Phần 4</span>
+  </div>
+
+  <div class="cover">
+    <h1>FC Online – Ghi chú</h1>
+  </div>
+
+  <div class="content">
+    <div class="toc"><div class="toc-title">Nội dung</div><ol><li><a href="#1-tong-quan-phan-nay">1. Tổng quan phần này</a></li><li><a href="#2-chi-so-cau-thu-giai-thich-chi-tiet">2. Chỉ số cầu thủ - Giải thích chi tiết</a></li><li><a href="#3-chi-so-an-hidden-stats">3. Chỉ số ẩn (Hidden Stats)</a></li><li><a href="#4-chien-thuat-oi-hinh-team-tactics">4. Chiến thuật đội hình (Team Tactics)</a></li><li><a href="#5-chien-thuat-on-tung-vi-tri-individual-tactics">5. Chiến thuật đơn từng vị trí (Individual Tactics)</a></li><li><a href="#6-huan-luyen-vien-oi-team-manager-coach">6. Huấn luyện viên đội (Team Manager / Coach)</a></li><li><a href="#7-huan-luyen-vien-ky-nang-skill-coach">7. Huấn luyện viên kỹ năng (Skill Coach)</a></li><li><a href="#8-ao-tao-cau-thu-player-training">8. Đào tạo cầu thủ (Player Training)</a></li><li><a href="#9-tips-meo-quan-trong">9. Tips &amp; Mẹo quan trọng</a></li><li><a href="#10-goi-y-xay-dung-oi-hinh-chon-cau-thu">10. Gợi ý xây dựng đội hình &amp; chọn cầu thủ</a></li><li><a href="#11-ket-thuc-tai-lieu">11. Kết thúc tài liệu</a></li></ol></div>
+    <article><hr />
+<h2 id="1-tong-quan-phan-nay">1. Tổng quan phần này</h2>
+<h3 id="muc-tieu">Mục tiêu</h3>
+<ul>
+<li></li>
+<li>Tập trung vào: <strong>chỉ số cầu thủ</strong> (cả chỉ số hiển thị lẫn chỉ số ẩn), <strong>huấn luyện viên</strong>, <strong>đào tạo cầu thủ</strong>, <strong>tập luyện chiến thuật</strong>, và <strong>chiến thuật đội hình / chiến thuật đơn từng vị trí</strong>.</li>
+</ul>
+<h3 id="noi-dung-chinh">Nội dung chính</h3>
+<ol>
+<li>Giải thích chi tiết từng chỉ số cầu thủ (tốc độ, dứt điểm, tầm nhìn, thể lực, v.v.)</li>
+<li>Giải thích toàn bộ chỉ số ẩn (hidden stats)</li>
+<li>Huấn luyện viên đội (team manager): chỉ số búp và cách chọn</li>
+<li>Đào tạo cầu thủ (player training) để tăng overall</li>
+<li>Tập luyện chiến thuật (trong trận đấu)</li>
+<li>Chiến thuật đội: 5 kiểu phòng thủ, độ rộng, độ thấp, kiểu tấn công</li>
+<li>Chiến thuật đơn từng vị trí: tiền đạo, tiền vệ, hậu vệ, thủ môn</li>
+</ol>
+<hr />
+<h2 id="2-chi-so-cau-thu-giai-thich-chi-tiet">2. Chỉ số cầu thủ - Giải thích chi tiết</h2>
+<h3 id="21-nhom-chi-so-toc-o">2.1. Nhóm chỉ số tốc độ</h3>
+<ul>
+<li><strong>Tốc độ (Speed):</strong> Tốc độ tối đa cầu thủ có thể đạt được. Ví dụ: cả xe cùi và siêu xe đều có thể đạt 300 km/h - điểm khác biệt là <strong>tốc độ tăng tốc</strong>.</li>
+<li><strong>Tăng tốc (Acceleration):</strong> Quan trọng hơn tốc độ. Quyết định cầu thủ đạt tốc độ tối đa trong bao lâu.</li>
+<li>Ví dụ: H. Maguire chỉ số tốc độ cao nhưng tăng tốc rất thấp nên cảm giác chạy rất chậm.</li>
+<li>Các cầu thủ tăng tốc cao như Dembélé, Mbappé thường được ưu tiên ở đấu trường quốc tế.</li>
+</ul>
+<h3 id="22-nhom-chi-so-dut-iem-sut-bong">2.2. Nhóm chỉ số dứt điểm / sút bóng</h3>
+<ul>
+<li><strong>Dứt điểm (Finishing):</strong> Chỉ tính trong vòng cấm. Sút từ ngoài vòng cấm tính chỉ số sút xa (long shots).</li>
+<li>Ví dụ: G. Müller chỉ dứt điểm tốt trong vòng cấm, sút xa rất tệ.</li>
+<li><strong>Lực sút (Shot Power):</strong> Quyết định bóng bay nhanh hay chậm. Ảnh hưởng đến cả đánh đầu.</li>
+<li>Neymar Jr sút rất mạnh → thủ môn đôi khi phản xạ chậm vì bóng bay quá nhanh.</li>
+<li><strong>Sút xa (Long Shots):</strong> Tỉ lệ thành công khi sút ngoài vòng cấm.</li>
+<li><strong>Sút xoáy (Curve):</strong> Không phải là "sút bóng xoáy" mà là độ cong của quả bóng (curve). Ảnh hưởng đến:</li>
+<li>Góc ZD trong vòng cấm (bóng cong ra góc xa hơn, thủ môn khó bắt hơn).</li>
+<li>Độ xoáy khi tạt bóng từ biên.</li>
+<li>Ví dụ: Beckham có sút xoáy rất cao nên tạt rất cuộn.</li>
+<li><strong>Vô lê (Volleys):</strong> Dùng khi ấn C dứt điểm trong vòng cấm - bắt vô lê, trồng ngược, xe đạp.</li>
+<li><strong>Penalty:</strong> Tỉ lệ thành công đá penalty.</li>
+</ul>
+<h3 id="23-nhom-chi-so-chuyen-bong">2.3. Nhóm chỉ số chuyền bóng</h3>
+<ul>
+<li><strong>Truyền ngắn (Short Passing):</strong> Các đường chuyền sệt (ground pass).</li>
+<li><strong>Truyền dài (Long Passing):</strong> Thực chất là truyền bổng (lofted pass), không phải truyền xa.</li>
+<li><strong>Tạt bóng (Crossing):</strong> Độ chính xác khi tạt từ biên.</li>
+<li><strong>Tầm nhìn (Vision):</strong> <strong>Chỉ số quan trọng nhất</strong> quyết định chuyền bóng có hay hay không.</li>
+<li>Cầu thủ tầm nhìn thấp: chỉ nhìn thẳng về người nhận, dễ bị đối phương cắt.</li>
+<li>Cầu thủ tầm nhìn cao: tự động truyền lệch để đồng đội chạy ra nhận bóng an toàn.</li>
+<li>Ví dụ: Patrick Vieira có chỉ số truyền đẹp nhưng tầm nhìn thấp → bị cho là "truyền ngu".</li>
+<li>Zidane tầm nhìn rất cao (cao hơn cả truyền ngắn, truyền dài) → đó là lý do chuyền bóng rất ảo.</li>
+</ul>
+<h3 id="24-nhom-chi-so-ky-thuat-ca-nhan">2.4. Nhóm chỉ số kỹ thuật cá nhân</h3>
+<ul>
+<li><strong>Dê bóng (Dribbling):</strong> Bóng có xa chân hay không khi dê (đặc biệt quan trọng khi nhấn R1).</li>
+<li><strong>Giữ bóng (Ball Control):</strong> Khả năng giữ bóng khi bị đối phương húc, tắc.</li>
+<li><strong>Khéo léo (Agility):</strong> Độ mượt khi lắc, xử lý cá nhân (không liên quan R1 - đó là dê bóng).</li>
+<li><strong>Thăng bằng (Balance):</strong> Khả năng không ngã khi bị đối phương lao vào.</li>
+<li>Ví dụ: Ronaldo Béo (R9) có chỉ số thăng bằng cao nhất (133) → gần như không ngã.</li>
+<li><strong>Chọn vị trí (Positioning):</strong> Di chuyển không bóng vào các khoảng trống.</li>
+</ul>
+<h3 id="25-nhom-chi-so-phong-thu">2.5. Nhóm chỉ số phòng thủ</h3>
+<ul>
+<li><strong>Kèm người (Marking):</strong> Khả năng kèm rát để đối phương không xử lý theo ý.</li>
+<li><strong>Lấy bóng (Tackling):</strong> Khả năng tắc bóng từ chân đối phương. Thấp quá → dễ phạm lỗi, thổi penalty.</li>
+<li><strong>Cắt bóng (Interceptions):</strong> Cắt các đường chuyền. Thấp quá → hay nhấc chân để bóng qua háng.</li>
+<li><strong>Xoạc bóng (Slide Tackle):</strong> Có thêm chỉ số ẩn xoạc bóng → gần như không bao giờ ăn thẻ đỏ.</li>
+<li><strong>Sức mạnh (Strength):</strong> Húc ngã đối phương (cần kết hợp với thể hình).</li>
+</ul>
+<h3 id="26-nhom-chi-so-the-chat">2.6. Nhóm chỉ số thể chất</h3>
+<ul>
+<li><strong>Thể lực (Stamina):</strong> Tốc độ tiêu hao thể lực (chậm = tốt).</li>
+<li>Thanh thể lực xanh (trên) tiêu hao trước; khi hết mới đốt thanh trắng (dưới).</li>
+<li>Neymar Jr tiêu hao thể lực rất chậm → luôn chạy được xa hơn người khác ở tốc độ cao.</li>
+<li>Cầu thủ dự bị nên có thể lực cao để khi vào sân đối phương đã mệt, mình vẫn còn thể lực.</li>
+<li><strong>Phản ứng (Reactions):</strong> Phản ứng trong các tình huống bóng nảy bất ngờ (quan trọng cho cả thủ thành và hậu vệ).</li>
+<li>Hậu vệ phản ứng thấp → dễ phản lưới nhà trong các tình huống tạt/ZD của đối phương.</li>
+</ul>
+<h3 id="27-nhom-chi-so-quyet-oan-binh-tinh">2.7. Nhóm chỉ số quyết đoán &amp; bình tĩnh</h3>
+<ul>
+<li><strong>Quyết đoán (Composure-related / Aggression):</strong> Tốc độ ra chân (sút, tắc bóng).</li>
+<li><strong>Bình tĩnh (Composure):</strong> Tỉ lệ thành công khi dứt điểm.</li>
+<li>Cầu thủ mùa cũ / danh tiếng thấp thường có bình tĩnh thấp → sút thất thường.</li>
+<li>CR7 ở các mùa cũ (EBS, v.v.) bình tĩnh không cao → đôi khi sút kém. Mùa mới được búp dần.</li>
+</ul>
+<h3 id="28-anh-au-nhay">2.8. Đánh đầu &amp; nhảy</h3>
+<ul>
+<li><strong>Đánh đầu (Heading Accuracy):</strong> Chỉ là độ hiểm (góc đánh đầu). <strong>Không</strong> quyết định tỉ lệ vào.</li>
+<li>Muốn đánh đầu ghi bàn hiệu quả cần: <strong>Lực sút</strong> (Power) + <strong>Chỉ số ẩn đánh đầu mạnh</strong>.</li>
+<li><strong>Nhảy (Jumping):</strong> Quyết định cầu thủ nhảy cao hay thấp - <strong>không phải chiều cao</strong>.</li>
+<li>Ví dụ: Diego Costa cao hơn đối thủ 20cm nhưng nhảy thấp hơn (chỉ số nhảy thấp) → thua tranh chấp trên không.</li>
+</ul>
+<hr />
+<h2 id="3-chi-so-an-hidden-stats">3. Chỉ số ẩn (Hidden Stats)</h2>
+<h3 id="31-chi-so-an-danh-cho-cau-thu-tan-cong">3.1. Chỉ số ẩn dành cho cầu thủ tấn công</h3>
+<table>
+<thead>
+<tr>
+<th>Chỉ số ẩn</th>
+<th>Tác dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bậc thầy chạy chỗ (Bậc thầy tốc độ)</strong></td>
+<td>Tiêu hao thể lực ít hơn khi chạy</td>
+</tr>
+<tr>
+<td><strong>Nỗ lực đến cùng</strong></td>
+<td>Sau phút 75, nếu đang bị dẫn trước → tự động búp thể lực</td>
+</tr>
+<tr>
+<td><strong>Sát thủ băng cắt</strong></td>
+<td>Di chuyển nhanh về phía cột xa để đón tạt bóng</td>
+</tr>
+<tr>
+<td><strong>Chuyên gia vô lê</strong></td>
+<td>Ấn C → 9/10 lần cố gắng vô lê thay vì đánh đầu</td>
+</tr>
+<tr>
+<td><strong>Đánh đầu mạnh</strong></td>
+<td>Đánh đầu mạnh dù dáng xấu</td>
+</tr>
+<tr>
+<td><strong>Sút xoáy (ẩn)</strong></td>
+<td>Tăng cực độ xoáy khi sút trong/ngoài vòng cấm (không tính tạt)</td>
+</tr>
+<tr>
+<td><strong>Sút xa (ẩn)</strong></td>
+<td>Búp tình huống D thường, D cháy góc ngoài vòng cấm</td>
+</tr>
+<tr>
+<td><strong>Bấm bóng</strong></td>
+<td>Dứt điểm dễ rơi vào lưới hơn</td>
+</tr>
+<tr>
+<td><strong>Sút vào tảm má ngoài</strong></td>
+<td>Tạt/sút má ngoài không khác gì má trong (vẫn xoáy bình thường)</td>
+</tr>
+<tr>
+<td><strong>Cá nhân</strong></td>
+<td>Kỹ năng xử lý cá nhân tốt hơn</td>
+</tr>
+<tr>
+<td><strong>Ma tốc độ</strong></td>
+<td>Dê bóng nhanh hơn khi đang có bóng</td>
+</tr>
+<tr>
+<td><strong>Tinh tế</strong></td>
+<td>Thực hiện kỹ năng điệu luyện mượt hơn (truyền/sút bằng C, xoay Roulette)</td>
+</tr>
+<tr>
+<td><strong>Kiến tạo</strong></td>
+<td>Tình huống chọc khe gần vòng cấm thành công cao hơn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-chi-so-an-danh-cho-cau-thu-phong-thu">3.2. Chỉ số ẩn dành cho cầu thủ phòng thủ</h3>
+<table>
+<thead>
+<tr>
+<th>Chỉ số ẩn</th>
+<th>Tác dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Xoạc bóng (ẩn)</strong></td>
+<td>Gần như không bao giờ ăn thẻ đỏ khi xoạc</td>
+</tr>
+<tr>
+<td><strong>Cao thủ tắc bóng</strong></td>
+<td>Tắc bóng hiệu quả từ phía sau</td>
+</tr>
+<tr>
+<td><strong>Chuyên gia đeo bám</strong></td>
+<td>Sau khi mất bóng tự lao về nhanh hơn</td>
+</tr>
+<tr>
+<td><strong>Siêu cản phá</strong></td>
+<td>Những tình huống vô lê trồng ngược khi phá bóng (ấn C)</td>
+</tr>
+<tr>
+<td><strong>Cứng như thép</strong></td>
+<td>Giảm tỉ lệ chấn thương (hữu ích vì chấn thương đốt thể lực)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-chi-so-an-chien-thuat-oi">3.3. Chỉ số ẩn chiến thuật đội</h3>
+<table>
+<thead>
+<tr>
+<th>Chỉ số ẩn</th>
+<th>Tác dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tận dụng khoảng trống</strong></td>
+<td>Toàn đội tự động chạy vào khoảng trống đối phương để lộ</td>
+</tr>
+<tr>
+<td><strong>Chạy chỗ phản công</strong></td>
+<td>Chỉ khi phản công mới chạy vào khoảng trống</td>
+</tr>
+<tr>
+<td><strong>Hậu vệ tấn công</strong></td>
+<td>Hai hậu vệ cánh tham gia tấn công (không tính trung vệ)</td>
+</tr>
+<tr>
+<td><strong>Thánh truyền bóng</strong></td>
+<td>Tất cả kỹ năng truyền tốt, búp tầm nhìn lên cao, hay truyền qua háng</td>
+</tr>
+<tr>
+<td><strong>Tạt bóng sớm</strong></td>
+<td>Cải thiện ZW, Z từ biên vào</td>
+</tr>
+<tr>
+<td><strong>Nỗ lực đến cùng</strong></td>
+<td>Sau phút 75 bị dẫn → búp thể lực toàn đội</td>
+</tr>
+<tr>
+<td><strong>Ăn vạ</strong></td>
+<td>Xu hướng ngã trong vòng cấm nhiều hơn</td>
+</tr>
+<tr>
+<td><strong>Đỡ bước một</strong></td>
+<td>Đỡ bóng không bị nảy (kể cả tạt mạnh)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34-luu-y-ve-no-luc-en-cung">3.4. Lưu ý về "Nỗ lực đến cùng"</h3>
+<ul>
+<li><strong>Điều kiện kích hoạt:</strong> Sau phút 75 + đang bị đối phương dẫn trước (dù chỉ 1 bàn).</li>
+<li><strong>Kết quả:</strong> Tự động búp thể lực cho cầu thủ có chỉ số ẩn này.</li>
+<li>Nếu đang hòa hoặc đang dẫn trước → <strong>không có tác dụng</strong>.</li>
+</ul>
+<hr />
+<h2 id="4-chien-thuat-oi-hinh-team-tactics">4. Chiến thuật đội hình (Team Tactics)</h2>
+<h3 id="41-nam-kieu-phong-thu">4.1. Năm kiểu phòng thủ</h3>
+<table>
+<thead>
+<tr>
+<th>Kiểu</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lui về (Drop Back)</strong></td>
+<td>Toàn đội rút về nhanh, xây xe buýt hai tầng. Tiền đạo đứng cao ở giữa sân (bản mới buộc tiền đạo đứng cao).</td>
+</tr>
+<tr>
+<td><strong>Cân bằng (Balanced)</strong></td>
+<td>Lui về chậm hơn, vừa lui vừa cố che đối phương. Khi đối phương đến vòng cấm thì đội hình mới như "lui về".</td>
+</tr>
+<tr>
+<td><strong>Áp lực khi xử lý bóng lỗi</strong></td>
+<td>Khi đối phương truyền lỗi → tự động kèm 1-1 trong 7 giây. Sau 7 giây → trở về cân bằng.</td>
+</tr>
+<tr>
+<td><strong>Áp lực ngay khi mất bóng</strong></td>
+<td>Ngay sau khi mình mất bóng → tự động bật áp lực lớn trong 7 giây → sau đó về cân bằng.</td>
+</tr>
+<tr>
+<td><strong>Cùng nhau gây áp lực (Press)</strong></td>
+<td>Đi lùa cả trận, pressing toàn sân.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tóm tắt logic:</strong> "Lui về" và "Cùng nhau gây áp lực" là hai đầu cực. Ba kiểu còn lại là biến thể giữa hai cực đó, trong đó hai kiểu "áp lực" đều tự động chuyển về cân bằng sau 7 giây.</p>
+</blockquote>
+<h3 id="42-o-rong-phong-thu-defensive-width">4.2. Độ rộng phòng thủ (Defensive Width)</h3>
+<ul>
+<li><strong>1-3:</strong> Tập trung trung lộ, bỏ cánh. Chỉ phù hợp khi đối phương chỉ công trung lộ.</li>
+<li><strong>4-7:</strong> Trung bình. Đứng đủ rộng để không bị vượt biên dễ.</li>
+<li><strong>8-10:</strong> Đứng sát biên, kèm tốt các đường đánh biên nhưng hở trung lộ.</li>
+<li><strong>Khuyến nghị:</strong> Để ~6. Đứng đủ gần biên để không phải chạy quá xa khi đối phương ra biên, vừa che được đường xuống biên, vừa che trung lộ.</li>
+</ul>
+<h3 id="43-o-thap-phong-thu-defensive-line">4.3. Độ thấp phòng thủ (Defensive Line)</h3>
+<ul>
+<li><strong>1-3:</strong> Thủ trong vòng cấm. Dễ bị sút xa.</li>
+<li><strong>4-7:</strong> Thủ ở rìa vòng cấm, có thể lùa được.</li>
+<li><strong>8-10:</strong> Dâng cao, gây áp lực giữa sân nhưng dễ bị chọc khe.</li>
+</ul>
+<h3 id="44-kieu-tan-cong-build-up-play">4.4. Kiểu tấn công (Build Up Play)</h3>
+<table>
+<thead>
+<tr>
+<th>Kiểu</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Truyền ngắn</strong></td>
+<td>Cầu thủ lùi về xin bóng, kiểu tiki-taka</td>
+</tr>
+<tr>
+<td><strong>Cân bằng</strong></td>
+<td>Cầu thủ đứng im, di chuyển theo AI của từng vị trí. Người chơi phải tự phối hợp nhiều.</td>
+</tr>
+<tr>
+<td><strong>Truyền dài</strong></td>
+<td>Phản công qua tiền đạo (kiểu Mourinho - chỉ tiền đạo di chuyển lên)</td>
+</tr>
+<tr>
+<td><strong>Trạng thái nhanh</strong></td>
+<td>Phản công tổng lực (kiểu Sir Alex Ferguson - nhiều người lên nhanh)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-o-rong-tan-cong-attacking-width">4.5. Độ rộng tấn công (Attacking Width)</h3>
+<ul>
+<li><strong>1-3:</strong> Cầu thủ sát nhau, dễ giẫm chân nhau, khó phối hợp.</li>
+<li><strong>4-7:</strong> Trung bình - phổ biến nhất.</li>
+<li><strong>8-10:</strong> Đứng rất rộng, hậu vệ cánh cũng xâm nhập vòng cấm.</li>
+</ul>
+<blockquote>
+<p><strong>Lưu ý quan trọng:</strong> Nếu dùng nhiều tiền vệ tấn công (ví dụ 4231) thì nên để độ rộng từ 6-7 để cầu thủ không giẫm chân nhau. Ngược lại, nếu có tiền vệ cánh thì độ rộng 3-4 để họ di chuyển vào trong phối hợp tiền vệ trung tâm.</p>
+</blockquote>
+<h3 id="46-cau-thu-trong-vong-cam-cornersfree-kicks">4.6. Cầu thủ trong vòng cấm (Corners/Free Kicks)</h3>
+<ul>
+<li><strong>1-2:</strong> Trung vệ không tham gia tấn công - an toàn nhất.</li>
+<li><strong>3:</strong> Trung vệ tham gia.</li>
+<li><strong>4-5:</strong> Nhiều cầu thủ trong vòng cấm, không có ai tuyến 2 đón sút xa.</li>
+<li><strong>Khuyến nghị:</strong> Dùng 1-2 nếu không có bài đá phạt góc. Tối đa 3 nếu có bài riêng.</li>
+</ul>
+<hr />
+<h2 id="5-chien-thuat-on-tung-vi-tri-individual-tactics">5. Chiến thuật đơn từng vị trí (Individual Tactics)</h2>
+<h3 id="51-tien-ao-cam-st-cf-ls-rs-lf-rf">5.1. Tiền đạo cắm (ST / CF / LS / RS / LF / RF)</h3>
+<p><strong>Xu hướng công/thủ:</strong><br />
+- Xu hướng tấn công: mức độ chạy chỗ xin bóng khi tấn công.<br />
+- Xu hướng phòng thủ: để thấp (=1) → đứng im khi mất bóng, tiết kiệm thể lực.</p>
+<p><strong>Vai trò (AR - Attack Role):</strong><br />
+| Vai trò | Mô tả |<br />
+|---|---|<br />
+| <strong>Sẻ nách (Poacher)</strong> | Chỉ chạy ra sau lưng hàng phòng ngự. Không làm tường. |<br />
+| <strong>Tiền đạo mục tiêu (Target Forward)</strong> | Làm tường, đỡ bóng, không chạy phòng sau. |<br />
+| <strong>Một cổ tấn công giải (False 9)</strong> | Lùi về làm bóng như tiền vệ, khi bóng vào phần sân đối phương thì xâm nhập như tiền đạo. |<br />
+| <strong>Tấn công trung bình</strong> | AI tự quyết định, làm tất cả tùy tình huống. |</p>
+<p><strong>Hỗ trợ phòng ngự:</strong><br />
+| Mức | Mô tả |<br />
+|---|---|<br />
+| Cơ bản | Đứng cạnh trung vệ đối phương |<br />
+| Luôn hỗ trợ | Đứng ngang CDM đối phương |<br />
+| Luôn ở trên | Đứng ở vạch giữa sân, không quan tâm phòng ngự, giữ thể lực tối đa |</p>
+<p><strong>Đánh chặn (Pressing):</strong><br />
+- <strong>Chủ động:</strong> Lao vào kèm thằng gần nhất.<br />
+- <strong>Bị động:</strong> Đứng im, giữ đúng vị trí trong đội hình.<br />
+- <strong>Thông thường:</strong> Chỉ lao vào khi thích hợp.</p>
+<p><strong>Di chuyển (Hỗ trợ xâm nhập):</strong><br />
+- <strong>Chạy chỗ:</strong> Chạy lung tung để làm bóng cùng đồng đội - dành cho Benzema, Harry Kane kiểu.<br />
+- <strong>Xác định khu vực trung tâm:</strong> Chỉ loanh quanh gần vòng cấm để dứt điểm - dành cho Ronaldo Béo, Cavani.<br />
+- <strong>Cân bằng:</strong> Theo AI của cầu thủ.</p>
+<h3 id="52-tien-ao-canh-lw-rw">5.2. Tiền đạo cánh (LW / RW)</h3>
+<p><strong>Vai trò:</strong><br />
+- <strong>Cơ hội tạo ra như nhau:</strong> Di chuyển theo AI, không xâm nhập vòng cấm chủ động.<br />
+- <strong>Đột phá:</strong> Lùi về đỡ bóng để người chơi tự dê (không tự chạy phòng sau).<br />
+- <strong>Bám biên:</strong> Đứng sát đường biên chờ bóng.<br />
+- <strong>Vai trò tự do:</strong> Di chuyển rộng, có thể xâm nhập vòng cấm.</p>
+<p><strong>Hành động khi cánh đối diện có bóng:</strong><br />
+- <strong>Xâm nhập vòng cấm:</strong> Cắt vào để đánh đầu / vô lê (phù hợp cầu thủ đánh đầu tốt như Perisic).<br />
+- <strong>Chờ ở cánh (ngoài vòng cấm):</strong> Chờ bóng nảy ra để sút xa (phù hợp cầu thủ sút xa tốt như Neymar Jr).</p>
+<h3 id="53-tien-ve-canh-lm-rm">5.3. Tiền vệ cánh (LM / RM)</h3>
+<p><strong>Điểm khác so với tiền đạo cánh:</strong><br />
+- <strong>Duy trì vị trí:</strong> Chỉ bám dọc biên.<br />
+- <strong>Cầu thủ tự do:</strong> Di chuyển vào trong theo chiều ngang khi có khoảng trống.</p>
+<h3 id="54-tien-ve-tan-cong-cam">5.4. Tiền vệ tấn công (CAM)</h3>
+<p><strong>Di chuyển thêm:</strong><br />
+- <strong>Cầu thủ tự do:</strong> Di chuyển theo chiều ngang, kiểu số 10 cổ điển.<br />
+- <strong>Di chuyển rộng:</strong> Di chuyển ngang trong khu vực gần vòng cấm, bất ngờ xâm nhập vòng cấm từ tuyến 2.</p>
+<h3 id="55-tien-ve-trung-tam-cm-cdm">5.5. Tiền vệ trung tâm (CM / CDM)</h3>
+<p><strong>Tấn công:</strong><br />
+| Vai trò | Mô tả |<br />
+|---|---|<br />
+| <strong>Tấn công cân bằng</strong> | Xâm nhập vòng cấm khi trước mặt không có người |<br />
+| <strong>Giữ vị trí</strong> | Không xâm nhập vòng cấm dù trước mặt trống |<br />
+| <strong>Tham gia tấn công</strong> | Luôn cố gắng xâm nhập vòng cấm |<br />
+| <strong>Vị trí giữa các hậu vệ</strong> | Lùi về làm trung vệ thứ 3 khi bóng chưa vượt giữa sân → rất tốn thể lực |</p>
+<p><strong>Phòng thủ:</strong><br />
+- <strong>Tập trung trung lộ:</strong> Không bọc lót cánh khi hậu vệ cánh lên.<br />
+- <strong>Phòng thủ ở biên:</strong> Bọc lót khi hậu vệ cánh tấn công.</p>
+<p><strong>Pressing tiền vệ:</strong><br />
+- <strong>Cắt bóng:</strong> Di chuyển theo chiều ngang để che đường bóng nguy hiểm, không lao vào người.<br />
+- <strong>Kèm 1-1:</strong> Kèm sát người gần nhất - hay nhưng dễ bỏ vị trí.<br />
+- <strong>Phòng ngự trung bình:</strong> Đứng giữ cự ly, không cắt không kèm - ít dùng.</p>
+<h3 id="56-hau-ve-canh-lb-rb-lwb-rwb">5.6. Hậu vệ cánh (LB / RB / LWB / RWB)</h3>
+<p><strong>Tấn công:</strong><br />
+- <strong>Tấn công cân bằng:</strong> Lên khi trước mặt không có tiền vệ cánh.<br />
+- <strong>Luôn luôn tống cánh:</strong> Lên tấn công dù có tiền vệ cánh.<br />
+- <strong>Không ra tấn công:</strong> Chỉ lên đến giữa sân phối hợp khi được ra lệnh (nháy Q).</p>
+<p><strong>Di chuyển:</strong><br />
+- <strong>Phối hợp trồng cánh:</strong> Chạy dọc biên phối hợp dù không tấn công.<br />
+- <strong>Di chuyển từ cánh vào trung tâm:</strong> Kết hợp với tiền vệ trung tâm thay vì đứng biên.</p>
+<h3 id="57-trung-ve-cb-sw">5.7. Trung vệ (CB / SW)</h3>
+<ul>
+<li><strong>Giữ vị trí:</strong> Không lên tấn công.</li>
+<li><strong>Tham gia tấn công:</strong> Lên bù vào vị trí tiền vệ khi tiền vệ đã lên (không lên tận tiền đạo).</li>
+<li><strong>Chơi như một tiền đạo:</strong> Đứng hẳn trong vòng cấm đối phương khi cần thiết.</li>
+</ul>
+<hr />
+<h2 id="6-huan-luyen-vien-oi-team-manager-coach">6. Huấn luyện viên đội (Team Manager / Coach)</h2>
+<h3 id="61-cach-chon-huan-luyen-vien">6.1. Cách chọn huấn luyện viên</h3>
+<ul>
+<li>Chọn HLV có <strong>biểu tượng tay sáng</strong> với đội hình đang dùng → mới có tác dụng búp chỉ số.</li>
+<li>Nếu tay đen đi = HLV không phù hợp đội hình, không búp được.</li>
+</ul>
+<h3 id="62-cac-chi-so-hlv-bup-moi-chi-so-bup-3-en-4">6.2. Các chỉ số HLV búp (mỗi chỉ số búp +3 đến +4)</h3>
+<ul>
+<li>Tốc độ chạy → búp Speed</li>
+<li>Gia tốc → búp Acceleration</li>
+<li>Chút chính xác → chỉ búp Finishing (dứt điểm, trong vòng cấm)</li>
+<li>Truyền chính xác → chỉ búp Short Passing</li>
+</ul>
+<h3 id="63-hoi-co-ong-vien-fan-club">6.3. Hội cổ động viên (Fan Club)</h3>
+<ul>
+<li>Chọn búp cho vị trí có nhiều cầu thủ nhất trong đội hình.</li>
+<li>Ví dụ: đá 4231 có nhiều tiền vệ → búp cho tiền vệ (sự cuồng nhiệt tiền vệ búp Sút xa).</li>
+</ul>
+<hr />
+<h2 id="7-huan-luyen-vien-ky-nang-skill-coach">7. Huấn luyện viên kỹ năng (Skill Coach)</h2>
+<h3 id="71-cac-ky-nang-quan-trong-thuong-dung">7.1. Các kỹ năng quan trọng thường dùng</h3>
+<table>
+<thead>
+<tr>
+<th>Kỹ năng</th>
+<th>Tác dụng</th>
+<th>Dùng cho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bậc thầy tốc độ</strong></td>
+<td>Tiêu hao thể lực ít hơn khi chạy</td>
+<td>Hậu vệ cánh (đuổi kịp tiền đạo nhanh hơn)</td>
+</tr>
+<tr>
+<td><strong>Chiến thuật Tiki-taka</strong></td>
+<td>Búp truyền một chạm, truyền 3 chạm đầu tiên chính xác hơn</td>
+<td>Tiền vệ, hậu vệ</td>
+</tr>
+<tr>
+<td><strong>Cải thiện truyền chọc khe</strong></td>
+<td>Búp đường W (qua tuyến)</td>
+<td>Tiền vệ, tiền đạo</td>
+</tr>
+<tr>
+<td><strong>Cải thiện sút xoáy</strong></td>
+<td>Búp ZD trong/ngoài vòng cấm</td>
+<td>Tiền đạo</td>
+</tr>
+<tr>
+<td><strong>Tấn công với nhịp độ nhanh</strong></td>
+<td>Búp sút một chạm</td>
+<td>Tiền đạo, tiền vệ</td>
+</tr>
+<tr>
+<td><strong>Đỡ bước một</strong></td>
+<td>Khả năng đỡ bóng không bị nảy</td>
+<td>Tiền vệ, tiền đạo</td>
+</tr>
+<tr>
+<td><strong>Khả năng tắc bóng</strong></td>
+<td>Tăng tỉ lệ thành công khi tắc bóng</td>
+<td>Hậu vệ</td>
+</tr>
+<tr>
+<td><strong>Khả năng khéo léo</strong></td>
+<td>Tăng khả năng tranh chấp bóng</td>
+<td>Hậu vệ, tiền vệ</td>
+</tr>
+<tr>
+<td><strong>Tổ chức</strong></td>
+<td>Cầu thủ về vị trí nhanh hơn</td>
+<td>Trung vệ (sau phạt góc)</td>
+</tr>
+<tr>
+<td><strong>Tiền đạo áp lực</strong></td>
+<td>Tiền đạo cướp bóng hiệu quả hơn (cần setting "đánh dặn chủ động")</td>
+<td>Tiền đạo</td>
+</tr>
+<tr>
+<td><strong>Xâm nhập vòng cấm</strong></td>
+<td>Cầu thủ cánh chéo vào vòng cấm khi nháy Q</td>
+<td>Tiền vệ cánh, tiền đạo cánh</td>
+</tr>
+<tr>
+<td><strong>Phản ứng ngay khi kêu gọi xâm nhập</strong></td>
+<td>Cầu thủ phản ứng ngay khi nháy Q, không bị chậm</td>
+<td>Tiền đạo, tiền vệ</td>
+</tr>
+<tr>
+<td><strong>Tỉ lệ kèm người</strong></td>
+<td>Tăng tỉ lệ thành công khi nhấn nút tắc bóng</td>
+<td>Hậu vệ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-goi-y-cua-thay-trong-giai-au">7.2. Gợi ý của thầy trong giải đấu</h3>
+<ul>
+<li><strong>Tiền vệ trung tâm:</strong> Đỡ bước một + Tiki-taka + Tấn công nhịp độ nhanh + 1 kỹ năng sút (để sút tuyến 2).</li>
+<li><strong>Hậu vệ cánh:</strong> Bậc thầy tốc độ + Khả năng tắc bóng + Khả năng khéo léo.</li>
+<li><strong>Trung vệ:</strong> Khả năng tắc bóng + Khả năng khéo léo + Tổ chức.</li>
+<li><strong>Tiền đạo dự bị:</strong> Bậc thầy tốc độ + Đỡ bước một (để chạy nhanh hơn hậu vệ đối phương đã kiệt sức).</li>
+</ul>
+<hr />
+<h2 id="8-ao-tao-cau-thu-player-training">8. Đào tạo cầu thủ (Player Training)</h2>
+<h3 id="81-nguong-chi-so-quan-trong">8.1. Ngưỡng chỉ số quan trọng</h3>
+<ul>
+<li>Chỉ số hoạt động theo <strong>mốc 10</strong>: 130→139 khác nhau nhưng ít. <strong>139→140 khác biệt rất lớn</strong> (như lên level mới).</li>
+<li>Ưu tiên búp các chỉ số lên tròn 140, 150... (ngưỡng mới).</li>
+<li>Màu hiển thị chỉ số thay đổi khi vượt ngưỡng.</li>
+</ul>
+<h3 id="82-bup-overall-tong-chi-so">8.2. Búp Overall (tổng chỉ số)</h3>
+<ul>
+<li>Chọn <strong>5 chỉ số phù hợp với vị trí</strong> để búp overall lên cao nhất.</li>
+<li>Ví dụ tiền đạo: Dứt điểm → Chọn vị trí → Giữ bóng → Lực sút → Đánh đầu.</li>
+<li>Overall cao → cầu thủ đá tốt hơn ở vị trí đó.</li>
+<li>Không cần búp các chỉ số không dùng (VD: đá phạt 38, không cần búp lên 40).</li>
+</ul>
+<h3 id="83-tap-luyen-chien-thuat-trong-tran">8.3. Tập luyện chiến thuật (trong trận)</h3>
+<ul>
+<li><strong>Chỉ quan tâm 2 loại:</strong></li>
+<li><strong>Kỹ thuật thành công</strong> (cấp 3): Dùng kỹ năng bất kỳ → búp dứt điểm và bình tĩnh cho cầu thủ. Spam được nhiều lần/trận.</li>
+<li><strong>Tắc bóng thành công</strong> (cho hậu vệ, cấp 3): Tắc bóng → búp chỉ số phòng thủ.</li>
+<li><strong>Cài thời điểm:</strong> Đặt ở <strong>đầu hiệp hai</strong> - hiệp 1 quan sát đối phương đá gì, đầu hiệp 2 bung sức.</li>
+<li>Thẻ vàng, thẻ đỏ, lỗi → rất ít trong 1 trận, không hiệu quả.</li>
+</ul>
+<hr />
+<h2 id="9-tips-meo-quan-trong">9. Tips &amp; Mẹo quan trọng</h2>
+<h3 id="ky-nang-va-ky-thuat">Kỹ năng và kỹ thuật</h3>
+<ul>
+<li><strong>Roll B rồi dứt điểm:</strong> Ngay sau khi dùng kỹ năng, cầu thủ được búp bình tĩnh + dứt điểm → tỉ lệ vào rất cao. Đây là lý do các game thủ chuyên nghiệp hay roll B trước khi sút.</li>
+<li><strong>ZD trong vòng cấm:</strong> Hiệu quả hơn nhiều với cầu thủ sút xoáy cao → bóng cong ra góc xa, thủ môn khó bắt.</li>
+<li><strong>Sút khi thể lực &gt;50%:</strong> Dưới 50% thể lực, các chỉ số giảm → sút ngu hơn, truyền dễ xịt hơn, thậm chí đá penalty cũng kém đi.</li>
+</ul>
+<h3 id="quan-ly-oi-hinh">Quản lý đội hình</h3>
+<ul>
+<li><strong>Thể lực cầu thủ dự bị:</strong> Cầu thủ thể lực cao vào thay khi đối phương đã kiệt sức → lợi thế về tốc độ chạy cuối trận.</li>
+<li><strong>Cầu thủ chấn thương:</strong> Chấn thương → đốt thể lực rất nhanh. Nên đổi hoặc để ý.</li>
+<li><strong>Phòng chống phản công:</strong> Để độ thấp phòng thủ thấp + cân bằng → khi mất bóng cầu thủ rút về nhanh, khó bị phản công.</li>
+</ul>
+<h3 id="chien-thuat-oi-khang">Chiến thuật đối kháng</h3>
+<ul>
+<li><strong>Hiệp 1 quan sát:</strong> Chơi nhùng nhằng hiệp 1 để xem đối phương spam tạt hay sút xa, sau đó điều chỉnh.</li>
+<li><strong>Spam đánh biên:</strong> Đối phương hay đánh biên → tăng độ rộng phòng thủ lên 7-8.</li>
+<li><strong>Đối phương công trung lộ nhiều:</strong> Giảm độ rộng xuống 1-3.</li>
+</ul>
+<h3 id="xay-dung-oi-hinh">Xây dựng đội hình</h3>
+<ul>
+<li>Không phải cứ cao là đánh đầu tốt - phải có chỉ số <strong>Nhảy (Jumping)</strong> cao.</li>
+<li>Không phải cứ tốc độ cao là chạy nhanh - phải có chỉ số <strong>Tăng tốc (Acceleration)</strong> cao.</li>
+<li>Cầu thủ truyền hay không nhất thiết phải có truyền ngắn cao - <strong>Tầm nhìn (Vision)</strong> mới là yếu tố quyết định.</li>
+</ul>
+<hr />
+<h2 id="10-goi-y-xay-dung-oi-hinh-chon-cau-thu">10. Gợi ý xây dựng đội hình &amp; chọn cầu thủ</h2>
+<h3 id="chon-cau-thu-theo-vi-tri">Chọn cầu thủ theo vị trí</h3>
+<table>
+<thead>
+<tr>
+<th>Vị trí</th>
+<th>Chỉ số ưu tiên</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tiền đạo cắm</strong></td>
+<td>Dứt điểm, Chọn vị trí, Giữ bóng, Lực sút, Tăng tốc</td>
+</tr>
+<tr>
+<td><strong>Tiền đạo cánh</strong></td>
+<td>Tăng tốc, Dê bóng, Sút xa hoặc Sút xoáy (tùy phong cách)</td>
+</tr>
+<tr>
+<td><strong>Tiền vệ trung tâm</strong></td>
+<td>Tầm nhìn, Truyền ngắn, Phản ứng, Lấy bóng</td>
+</tr>
+<tr>
+<td><strong>Tiền vệ tấn công</strong></td>
+<td>Tầm nhìn, Sút xa, Dứt điểm, Dê bóng</td>
+</tr>
+<tr>
+<td><strong>Hậu vệ cánh</strong></td>
+<td>Tăng tốc, Thể lực, Lấy bóng, Kèm người</td>
+</tr>
+<tr>
+<td><strong>Trung vệ</strong></td>
+<td>Phản ứng, Lấy bóng, Sức mạnh, Nhảy, Đánh đầu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="combo-chi-so-an-goi-y">Combo chỉ số ẩn gợi ý</h3>
+<ul>
+<li><strong>Ronaldo Béo (R9) + Chuyên gia vô lê (ẩn vàng ở thẻ +8):</strong> Vừa chạy chỗ hay (bậc thầy chạy chỗ) vừa vô lê tốt → rất nguy hiểm.</li>
+<li><strong>CR7 mùa 25TS + Sát thủ băng cắt:</strong> Liên tục di chuyển cột xa đánh đầu → không cần creative run vẫn gây nguy hiểm.</li>
+</ul>
+<h3 id="luu-y-team-color-lien-ket-oi-hinh">Lưu ý team color (liên kết đội hình)</h3>
+<ul>
+<li>Team color búp thêm các chỉ số nhỏ → tổng overall có thể tăng thêm 1-2.</li>
+<li>Ví dụ: Team Real Madrid búp thêm chỉ số → overall từ 134 lên 136 dù đào tạo chỉ lên được 136 (không phải 137).</li>
+<li>Khi thay một cầu thủ không cùng team color → mất bonus ngay.</li>
+</ul>
+<hr />
+<h2 id="11-ket-thuc-tai-lieu">11. Kết thúc tài liệu</h2>
+<ul>
+<li></li>
+<li>Thầy cam kết <strong>đồng hành qua group chat</strong> trả lời câu hỏi cho đến khi người chơi đạt hạng Siêu Sao.</li>
+<li>Gợi ý: Record trận đấu và chia sẻ vào group để nhận phân tích cụ thể những điểm cần cải thiện.</li>
+</ul>
+<hr /></article>
+    <div class="nav-footer"><a class="nav-btn" href="buoi3.html"><span class="nav-label">← Phần trước</span><span class="nav-name">Phần 3: Phòng ngự nâng cao</span></a><a class="nav-btn right" href="buoi5.html"><span class="nav-label">Phần tiếp →</span><span class="nav-name">Phần 5: Thực chiến</span></a></div>
+  </div>
+</body>
+</html>
